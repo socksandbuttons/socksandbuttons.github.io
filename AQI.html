@@ -1,12 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
-</head>
-<body>
-<div id='PurpleAirWidget_20519_module_AQI_conversion_C0_average_10_layer_standard'>
-Loading PurpleAir Widget...</div>
+    <style> 
+        .rdiv {
+          width: 100%;
+          height: 200px;
+          position: relative;
+          animation: mymove 10s infinite;
+          font-size: 70px;
+          font-weight: 400;
+          padding-top: 10%;
+          color: white;
+        }
+        .widge {
+            padding-left: 25%;
+        }
+        @keyframes mymove {
+          from {left: -30px;}
+          to {left: 120%;}
+        }
+        </style>
+
 <script src='https://www.purpleair.com/pa.widget.js?key=464R2ML81DAEZ9F4&module=AQI&conversion=C0&average=10&layer=standard&container=PurpleAirWidget_20519_module_AQI_conversion_C0_average_10_layer_standard'>
 </script>
+<title>Page Title</title>
+</head>
+<body >
+    
+<div class="widge" id='PurpleAirWidget_20519_module_AQI_conversion_C0_average_10_layer_standard'>
+Loading PurpleAir Widget...</div>
+
+<div class='rdiv' id='ttt' >
+    </div>
+
+<script>
+
+window.addEventListener("resize", function(){
+    var AQI = document.getElementsByClassName("popup-aqi popup-medium")[0].innerHTML;
+    console.log(AQI);
+    console.log('AQI');
+
+    var prr = document.querySelector('.current-conditions')
+    var q = getComputedStyle(prr)
+    var color = q["backgroundColor"]
+    console.log(color)
+    document.body.style.backgroundColor = color;
+    // var huh = document.getElementsByClassName("rdiv").innerText
+    var huh = document.getElementById('ttt').innerHTML = "The AQI is "+AQI;
+    console.log(huh);
+});
+
+document.addEventListener("visibilitychange", function() {
+  if (document.visibilityState === 'visible') {
+    var AQI = document.getElementsByClassName("popup-aqi popup-medium")[0].innerHTML;
+    console.log(AQI);
+    console.log('AQI');
+
+    var prr = document.querySelector('.current-conditions')
+    var q = getComputedStyle(prr)
+    var color = q["backgroundColor"]
+    console.log(color)
+    document.body.style.backgroundColor = color;
+    // var huh = document.getElementsByClassName("rdiv").innerText
+    var huh = document.getElementById('ttt').innerHTML = "The AQI is "+AQI;
+    console.log(huh);
+  } 
+});
+
+</script>
+
 </body>
 </html>
